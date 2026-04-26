@@ -59,6 +59,8 @@ For a full list of flags, run:
 python server.py --help
 ```
 
+> **Personal note:** I usually launch with `python server.py --api --listen --load-in-4bit` on my local machine. Works well for most GGUF models under 13B.
+
 ## Models
 
 Place your models in the `models/` directory. Supported formats:
