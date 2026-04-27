@@ -70,6 +70,8 @@ python server.py --help
 > python server.py --api --listen --load-in-4bit --gpu-memory 10 --n-gpu-layers 35 --port 7860
 > ```
 > Saved this as `start.sh` in the repo root so I don't have to remember it every time.
+>
+> **Update:** Bumped `--n-gpu-layers` to 40 after some testing — stable on 7B and most Q4 13B models. Also switched to `--port 7861` to avoid conflicts with another local service I'm running on 7860.
 
 ## Models
 
