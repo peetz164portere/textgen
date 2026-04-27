@@ -74,6 +74,12 @@ python server.py --help
 > **Update:** Bumped `--n-gpu-layers` to 40 after some testing — stable on 7B and most Q4 13B models. Also switched to `--port 7861` to avoid conflicts with another local service I'm running on 7860.
 >
 > **Update 2:** Tried `--n-gpu-layers 43` on the Q4_K_M 13B Mistral fine-tune I've been using lately — fits fine and noticeably faster. Keeping that as my new default for 13B models. For 7B I still use 40, no real benefit going higher.
+>
+> **Update 3:** Switched from `--load-in-4bit` to just relying on the GGUF quantization directly — cleaner and one less thing that can go wrong. New daily command:
+> ```bash
+> python server.py --api --listen --gpu-memory 10 --n-gpu-layers 43 --port 7861
+> ```
+> Updated `start.sh` accordingly.
 
 ## Models
 
@@ -89,16 +95,4 @@ Place your models in the `models/` directory. Supported formats:
 
 When started with `--api`, the server exposes OpenAI-compatible endpoints at `http://localhost:5000`.
 
-See the [API documentation](docs/API.md) for details.
-
-## Extensions
-
-Extensions live in the `extensions/` directory. Enable them with:
-
-```bash
-python server.py --extensions extension_name
-```
-
-## Contributing
-
-Pull requests are welcome. Please read [
+See the [API d
