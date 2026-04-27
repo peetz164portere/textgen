@@ -60,6 +60,8 @@ python server.py --help
 ```
 
 > **Personal note:** I usually launch with `python server.py --api --listen --load-in-4bit` on my local machine. Works well for most GGUF models under 13B.
+>
+> For my RTX 3060 (12GB VRAM), adding `--gpu-memory 10` keeps things stable and leaves headroom for the OS. Without it I'd occasionally get OOM crashes mid-generation.
 
 ## Models
 
