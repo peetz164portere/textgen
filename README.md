@@ -64,6 +64,12 @@ python server.py --help
 > For my RTX 3060 (12GB VRAM), adding `--gpu-memory 10` keeps things stable and leaves headroom for the OS. Without it I'd occasionally get OOM crashes mid-generation.
 >
 > Also found that adding `--n-gpu-layers 35` gives a nice speed boost for 7B GGUF models on this card — offloads most layers to GPU without blowing the VRAM budget.
+>
+> **My go-to launch command for daily use:**
+> ```bash
+> python server.py --api --listen --load-in-4bit --gpu-memory 10 --n-gpu-layers 35 --port 7860
+> ```
+> Saved this as `start.sh` in the repo root so I don't have to remember it every time.
 
 ## Models
 
