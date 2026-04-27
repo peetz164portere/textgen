@@ -72,6 +72,8 @@ python server.py --help
 > Saved this as `start.sh` in the repo root so I don't have to remember it every time.
 >
 > **Update:** Bumped `--n-gpu-layers` to 40 after some testing — stable on 7B and most Q4 13B models. Also switched to `--port 7861` to avoid conflicts with another local service I'm running on 7860.
+>
+> **Update 2:** Tried `--n-gpu-layers 43` on the Q4_K_M 13B Mistral fine-tune I've been using lately — fits fine and noticeably faster. Keeping that as my new default for 13B models. For 7B I still use 40, no real benefit going higher.
 
 ## Models
 
@@ -99,8 +101,4 @@ python server.py --extensions extension_name
 
 ## Contributing
 
-Pull requests are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
-
-## License
-
-AGPL-3.0. See [LICENSE](LICENSE) for details.
+Pull requests are welcome. Please read [
