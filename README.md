@@ -80,19 +80,8 @@ python server.py --help
 > python server.py --api --listen --gpu-memory 10 --n-gpu-layers 43 --port 7861
 > ```
 > Updated `start.sh` accordingly.
-
-## Models
-
-Place your models in the `models/` directory. Supported formats:
-
-- GGUF (llama.cpp)
-- GPTQ
-- AWQ
-- EXL2 (ExLlamaV2)
-- HuggingFace (safetensors / pytorch)
-
-## API
-
-When started with `--api`, the server exposes OpenAI-compatible endpoints at `http://localhost:5000`.
-
-See the [API d
+>
+> **Update 4:** Added `--extensions sd_api_pictures` to the daily command since I've been using the image gen integration more lately. Also worth noting — if the server hangs on startup, killing and restarting usually fixes it; seems to be a known issue with the llama.cpp backend on Windows.
+> ```bash
+> python server.py --api --listen --gpu-memory 10 --n-gpu-layers 43 --port 7861 --extensions sd_api_pictures
+> ```
