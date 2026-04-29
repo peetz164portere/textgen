@@ -81,4 +81,4 @@ python server.py --help
 > ```
 > Updated `start.sh` accordingly.
 >
-> **Update 4:** Added `--extensions sd_api_pictures` to the daily command since I've been using the image gen integration more. Also worth noting — if the server hangs on startup, killing and restarting usually fixes it; seems to be a known issue with certain llama.cpp versions.
+> **Update 4:** Added `--extensions sd_api_pictures` to the daily command since I've been using the image gen integration more lately. Also worth noting — if the server hangs on startup, killing and restarting usually fixes it; seems to happen when a previous instance didn't shut down cleanly.
