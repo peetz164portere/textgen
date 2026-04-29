@@ -81,4 +81,7 @@ python server.py --help
 > ```
 > Updated `start.sh` accordingly.
 >
-> **Update 4:** Added `--extensions sd_api_pictures` to the daily command since I've been using the image gen integration more lately. Also worth noting — if the server hangs on startup, killing and restarting usually fixes it; seems to happen when a previous process didn't shut down cleanly.
+> **Update 4:** Added `--threads 6` to the command — noticed better throughput on my Ryzen 5 5600X when explicitly setting this rather than letting it auto-detect. CPU usage feels more balanced too.
+> ```bash
+> python server.py --api --listen --gpu-memory 10 --n-gpu-layers 43 --port 7861 --threads 6
+> ```
