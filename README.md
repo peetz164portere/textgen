@@ -81,7 +81,7 @@ python server.py --help
 > ```
 > Updated `start.sh` accordingly.
 >
-> **Update 4:** Added `--extensions sd_api_pictures` to the daily command since I've been using the Stable Diffusion integration more. Also bumped `--gpu-memory` to 11 — been running stable for a week with no OOM, apparently I was being too conservative before.
+> **Update 4:** Added `--extensions sd_api_pictures` to the daily command since I've been using the image gen integration more. Also worth noting — if the server hangs on startup, killing and restarting usually fixes it; seems to be a known llama.cpp init race condition.
 > ```bash
-> python server.py --api --listen --gpu-memory 11 --n-gpu-layers 43 --port 7861 --extensions sd_api_pictures
+> python server.py --api --listen --gpu-memory 10 --n-gpu-layers 43 --port 7861 --extensions sd_api_pictures
 > ```
