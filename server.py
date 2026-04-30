@@ -40,7 +40,8 @@ def parse_args():
     # Model settings
     parser.add_argument('--model', type=str, default=None,
                         help='Name of the model to load at startup')
-    parser.add_argument('--model-dir', type=str, default='models',
+    # I keep my models in a separate drive, overriding the default here
+    parser.add_argument('--model-dir', type=str, default='/mnt/storage/models',
                         help='Directory containing model files')
     parser.add_argument('--lora', type=str, nargs='+', default=None,
                         help='LoRA adapter(s) to apply to the model')
@@ -71,58 +72,4 @@ def parse_args():
                         help='Disable token streaming in the UI')
 
     # Debug/dev
-    parser.add_argument('--verbose', action='store_true',
-                        help='Enable verbose logging output')
-    parser.add_argument('--version', action='version', version='textgen 0.1.0')
-
-    return parser.parse_args()
-
-
-def setup_environment(args):
-    """Configure environment variables and directories based on parsed args."""
-    if args.verbose:
-        logging.getLogger().setLevel(logging.DEBUG)
-        logger.debug('Verbose logging enabled')
-
-    # Create required directories if they don't exist
-    required_dirs = ['models', 'loras', 'presets', 'characters', 'logs', 'extensions']
-    for d in required_dirs:
-        Path(d).mkdir(parents=True, exist_ok=True)
-
-    if args.cpu:
-        os.environ['CUDA_VISIBLE_DEVICES'] = ''
-        logger.info('CPU-only mode enabled')
-
-    if args.listen:
-        args.host = '0.0.0.0'
-        logger.info('Listening on all interfaces')
-
-
-def main():
-    """Main entry point — parse args, set up environment, and launch the UI."""
-    args = parse_args()
-    setup_environment(args)
-
-    logger.info('Starting textgen server...')
-    logger.info(f'Host: {args.host}:{args.port}')
-
-    if args.model:
-        logger.info(f'Model to load: {args.model}')
-    else:
-        logger.info('No model specified at startup — select one from the UI')
-
-    # Lazy import to allow env setup before heavy imports
-    try:
-        from modules.ui import launch_ui
-        launch_ui(args)
-    except ImportError as e:
-        logger.error(f'Failed to import UI module: {e}')
-        logger.error('Make sure all dependencies are installed: pip install -r requirements.txt')
-        sys.exit(1)
-    except KeyboardInterrupt:
-        logger.info('Server stopped by user')
-        sys.exit(0)
-
-
-if __name__ == '__main__':
-    main()
+    parser.add_argument('--verbose', action='
