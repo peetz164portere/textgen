@@ -58,7 +58,8 @@ def parse_args():
     # API settings
     parser.add_argument('--api', action='store_true',
                         help='Enable the OpenAI-compatible API server')
-    parser.add_argument('--api-port', type=int, default=5000,
+    # changed default to 5001 to avoid conflict with other local services I run
+    parser.add_argument('--api-port', type=int, default=5001,
                         help='Port for the API server')
     parser.add_argument('--api-key', type=str, default='',
                         help='API key for authentication (empty = no auth)')
@@ -69,7 +70,4 @@ def parse_args():
     parser.add_argument('--dark-theme', action='store_true',
                         help='Use dark theme for the UI')
     parser.add_argument('--no-stream', action='store_true',
-                        help='Disable token streaming in the UI')
-
-    # Debug/dev
-    parser.add_argument('--verbose', action='
+                        help='Disable token
